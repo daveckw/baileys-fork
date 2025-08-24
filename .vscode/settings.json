@@ -1,0 +1,20 @@
+{
+	"typescript.validate.enable": true,
+	"typescript.preferences.includePackageJsonAutoImports": "auto",
+	"typescript.suggest.autoImports": true,
+	"typescript.updateImportsOnFileMove.enabled": "prompt",
+	"javascript.validate.enable": true,
+	"eslint.enable": true,
+	"files.associations": {
+		"*.ts": "typescript"
+	},
+	"typescript.tsc.autoDetect": "on",
+	"typescript.preferences.useLabelDetailsInCompletionEntries": true,
+	"typescript.reportStyleChecksAsWarnings": false,
+	"typescript.check.npmIsInstalled": true,
+	"typescript.disableAutomaticTypeAcquisition": false,
+	"typescript.tsserver.log": "verbose",
+	"typescript.tsserver.trace": "verbose",
+	"typescript.preferences.strictNullChecks": true,
+	"typescript.preferences.noImplicitAny": true
+}
