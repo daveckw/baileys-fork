@@ -3,7 +3,8 @@ import { makeLibSignalRepository } from '../Signal/libsignal'
 import type { AuthenticationState, MediaType, SocketConfig, WAVersion } from '../Types'
 import { Browsers } from '../Utils'
 import logger from '../Utils/logger'
-import defaultVersion from './baileys-version.json' with { type: 'json' }
+// @ts-ignore
+import defaultVersion from './baileys-version.json'
 
 const { version } = defaultVersion
 

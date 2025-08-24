@@ -383,6 +383,9 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 		const isNewsletter = server === 'newsletter'
 
 		msgId = msgId || generateMessageIDV2(sock.user?.id)
+		if (!msgId) {
+			throw new Error('Failed to generate message ID')
+		}
 		useUserDevicesCache = useUserDevicesCache !== false
 		useCachedGroupMetadata = useCachedGroupMetadata !== false && !isStatus
 
@@ -432,7 +435,7 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 					tag: 'message',
 					attrs: {
 						to: jid,
-						id: msgId,
+						id: msgId!,
 						type: getMessageType(message),
 						...(additionalAttributes || {})
 					},
@@ -605,7 +608,7 @@ export const makeMessagesSocket = (config: SocketConfig) => {
 			const stanza: BinaryNode = {
 				tag: 'message',
 				attrs: {
-					id: msgId,
+					id: msgId!,
 					type: getMessageType(message),
 					...(additionalAttributes || {})
 				},
