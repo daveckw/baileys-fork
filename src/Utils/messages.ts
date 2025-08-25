@@ -512,7 +512,8 @@ export const generateWAMessageContent = async (
 		const pollCreationMessage = {
 			name: message.poll.name,
 			selectableOptionsCount: message.poll.selectableCount,
-			options: message.poll.values.map(optionName => ({ optionName }))
+			options: message.poll.values.map(optionName => ({ optionName })),
+			contextInfo: ('contextInfo' in message && message.contextInfo) ? message.contextInfo : undefined
 		}
 
 		if (message.poll.toAnnouncementGroup) {
@@ -564,7 +565,7 @@ export const generateWAMessageContent = async (
 		}
 	}
 
-	if ('contextInfo' in message && !!message.contextInfo) {
+	if ('contextInfo' in message && !!message.contextInfo && !('poll' in message)) {
 		const messageType = Object.keys(m)[0]! as Extract<keyof proto.IMessage, MessageWithContextInfo>
 		const key = m[messageType]
 		if ('contextInfo' in key! && !!key.contextInfo) {
